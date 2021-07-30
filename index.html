@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <title>javascript at steroids</title>
+
+
+</head>
+
+<body>
+
+
+  <div class="container-1">
+  
+
+
+    <h2>challenge 1: your age in days</h2>
+   
+    <div class="flex-box-container-1">
+
+  
+      <div>
+        <button class="btn btn-primary" onclick="ageInDays()">Click me</button>
+      </div>
+
+
+
+      <div>
+        <button class="btn btn-danger" onclick="reset()">Reset</button>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="flex-box-container-1">
+
+      <!-- <div id = "flex-box-result2" >   -->
+
+        <div id="flex-box-result" >
+        </div>  
+
+
+        
+     <!-- </div>   -->
+
+    </div>
+
+
+
+    <!--  it's challange number 2   'Generate cart by yourself'-->
+
+    <div src="container-2">
+
+      <h2> challenge 2: Random card  Generate  </h2>
+      <button class="btn btn-success" onclick="generateCart()">Generator Cat</button>
+      <!--  then you  put any item inside of it that become a flex item essentialy  -->
+      <div class='flex-box-container-2' id="flex-cat-gen">
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="container-3">
+    <h2>challenge no 3: Rock paper scissor game</h2>
+
+    <div class="flex-box-reps" id="flex-box-rps-div">
+
+      <img id="rock"
+        src="data:image/jpeg;base64,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"
+        height="150px" width="200px" alt="" onclick="rpsGame(this)">
+
+      <img id="paper"
+        src="https://upload.wikimedia.org/wikipedia/commons/5/52/Continuous_form_paper_%2814p875_x_11%29.jpg"
+        height="150px" width="200px" onclick="rpsGame(this)">
+
+      <img id="scissors"
+        src="https://previews.123rf.com/images/olenaboldyreva/olenaboldyreva1806/olenaboldyreva180600067/103435150-hand-with-two-fingers-up.jpg"
+        height="150px" width="200px" onclick="rpsGame(this)">
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="container-4">
+    <h2 id="change-my-color"> Challenge no 4 :Change the color of all buttons</h2>
+
+    <div class="flex-box-pick-color">
+
+      <form action="">
+
+        <select name="backdrop" id="backdrop" onchange="buttonColorChange(this)">
+          <option value="random">Random</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="reset">Reset</option>
+
+        </select>
+
+      </form>
+
+
+      <button class="btn btn-primary" id="Wee">
+       <!-- <a href="https://www.yahoo.com/"></a>  -->
+        Wee!</button>
+  
+
+      <button class="btn btn-danger"  id="Yahoo"> Yahoo!</button>
+
+      <button class="btn btn-warning" id="Google">Google</button>
+
+      <button class="btn btn-success" id="Facebook"> Facebook </button>
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+  <div class="container-5">
+
+   
+
+    <h2>Challenge 5:Blackjack </h2>
+<!-- <h3><span id="Digital-Clock"> let's play </span></h3> -->
+   
+
+
+ 
+    <div  class="flex-blackjack-row-4">  
+
+     <div class="flex-blackjack-row-3">  
+    <table>
+
+    
+        <tr class="b" > 
+
+   
+          <h3 id="count">7</h3>
+         
+
+          <th>Win</th>
+          <th><span id="wins">0 </span></th>
+          <th>Losses</th>
+          <th> <span id="losses">0</span></th>
+          <th>Draws</th>
+          <th> <span id="draws">0</span></th>
+          </tr>
+
+
+    
+
+      </table> 
+
+    </div>
+
+
+      </div>  
+
+
+  
+
+    <div id="Digital-Clock"     class="flex-blackjack-row-1">
+  
+      
+    
+  
+      <div id="your-box">
+        <h2>you:<span id="your-blackjack-result">0</span> </h2>
+      </div>
+
+
+
+
+      <div id="dealer-box">
+        <h2>Dealer:<span id="dealer-blackjack-result">0</span></h2>
+      </div>
+
+
+
+
+    </div>
+
+ 
+
+
+
+
+
+    <div class="flex-blackjack-row-2">
+      <div>
+        <button  onmouseover="showtime()"  class="btn btn-primary mr-2" id="Blackjack-hit-button">Hit</button>
+        <button class="btn btn-warning mr-2" id="Blackjack-stand-button" >Stand</button>
+        <button class="btn btn-danger " id="Blackjack-deal-button">Deal</button>
+      </div>
+
+    </div>
+
+
+
+
+
+        <div class="container-6" >
+
+          <h2>Challenge 6: Random User </h2>
+          
+           
+             <div class="flex-box-reps">
+    
+               
+              </div>
+        
+            
+                </div>
+
+
+
+         
+
+         
+          
+
+
+  </div>
+
+  <!-- Internal JavaScript -->
+
+  <script>
+
+
+
+
+
+     
+
+
+    // Challenge no 1 your age in days ///
+
+    function ageInDays() {
+      // logic working ////
+ 
+     
+        var birthYear = prompt('what year were you born ... good friend?');
+
+       
+        var name  = prompt("what s'  your name")
+ 
+        var ageInDayss = (2021 - birthYear)* 365;
+        
+
+         
+      
+         console.log(ageInDays);
+        
+
+              /// /// fetch data//////
+
+        const url = 'https://randomuser.me/api/?results=1';
+        fetch(url)
+        .then(resp => resp.json())
+        .then(data=>{
+           
+              
+          let authors = data.results;
+          console.log(authors)
+
+            for(i=0 ; i<authors.length ; i++){
+
+                let div = document.createElement('div');
+                let image = document.createElement('img');
+                let p = document.createElement('p');
+              
+                
+                image.src = authors[i].picture.large;
+                div.appendChild(image);
+                div.setAttribute('id', 'image')  
+                div.appendChild(p);
+                document.getElementById('flex-box-result').appendChild(div);
+               
+            }
+
+        })
+
+  
+
+      // creating h1 elemenet //
+       var h3 = document.createElement('h3')
+     
+    
+      var testAnswer = document.createTextNode(  name + " you 're " + ageInDayss + '  days old')
+ 
+         
+
+
+      h3.setAttribute('id', 'ageInDays')
+      h3.appendChild(testAnswer);
+      var div2 =  document.getElementById('flex-box-result').appendChild(h3)
+      div2.style.width = '130px';
+      div2.style.height = '130px';
+  
+    }
+
+
+
+
+
+    
+    function reset() {
+      document.getElementById("ageInDays").remove()
+      document.getElementById('image').remove()
+      
+      var date = new Date() ; 
+       console.log(date)
+    }
+
+
+
+
+    // Challenge no 2 generate cart //
+
+     function generateCart() {
+
+       var image = document.createElement('img')
+       var div = document.getElementById('flex-cat-gen')
+       image.src = 'http://thecatapi.com/api/images/get?formal=src&type=gif&size=small'
+       div.appendChild(image)
+       const ClickSound = new Audio('./Sounds/click.mp3');
+       ClickSound.play();
+     }
+
+
+
+   
+
+
+
+
+    // Challenger no 3 , Rock papers scissor//
+    function rpsGame(yourChoice) {
+      console.log(yourChoice)
+
+
+      var humanChoice, botChoice;
+      humanChoice = yourChoice.id;
+
+
+      botChoice = numberToChoice(randToRpsInt())
+      console.log('computerChoice', botChoice)
+
+
+      results = decideWinner(humanChoice, botChoice)
+      console.log('results', results)
+
+      message = finalMessage(results) // {message:'you won' , color:green}
+      console.log(message)
+
+      rpsFrontend(yourChoice.id, botChoice, message)
+
+    }
+
+
+
+
+
+    function randToRpsInt() {
+      return Math.floor(Math.random() * 3)
+    }
+
+
+
+
+    function numberToChoice(number) {
+      return ['rock', 'paper', 'scissors'][number];
+    }
+
+
+
+
+
+    function decideWinner(yourChoice, computerChoice) {
+
+    var   rpsDatabase = {
+
+        'rock': {
+          'scissors': 1,
+          'rock': 0.5,
+          'paper': 0
+        },
+
+        'paper': {
+          'rock': 1,
+          'paper': 0.5,
+          'scissors': 0
+        },
+
+        'scissors': {
+          'paper': 1,
+          'scissors': 0.5,
+          'rock': 0
+        }
+
+      }
+
+      var yourScore = rpsDatabase[yourChoice][computerChoice];
+      var computerScore = rpsDatabase[computerChoice][yourChoice]
+
+      return ['yourScore', yourScore, 'computerScore', computerScore]
+
+
+      console.log(yourScore)
+      console.log(computerScore)
+    }
+
+
+
+    
+
+
+    function finalMessage([yourScore, computerScore]) {
+
+      if ( computerScore  === 0) {
+        return { 'message': 'you lost!', 'color': 'red' };
+      } if  (yourScore === 0.5 || computerScore === 0.5) {
+        return { 'message': 'you tied!', 'color': 'yellow' };
+      } else {
+        return { 'message': 'You won!', 'color': 'green' };
+      }
+
+    }
+  
+
+
+
+    function rpsFrontend(humanImageChoice, botImageChoice, finalMessage) {
+
+
+
+      var imagesDatabase = {
+        'rock': document.getElementById('rock').src,
+        'paper': document.getElementById('paper').src,
+        'scissors': document.getElementById('scissors').src
+      }
+
+   
+
+
+      // let's remove all the images
+      document.getElementById('rock').remove();
+      document.getElementById('paper').remove();
+      document.getElementById('scissors').remove();
+
+
+      var humanDiv = document.createElement('div');
+      var botDiv = document.createElement('div');
+      var messageDiv = document.createElement('div');
+
+
+       humanDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice] + "'height=150 width=150  style='box-shadow:0px 10px 50px rgba(37,50,233,1);'>"
+       messageDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size:60px; padding:30px; '>" + finalMessage['message'] + "</h1>"
+       botDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "'height=150 width=150  style='box-shadow:0px 10px 50px rgba(243,38,24,1);'>"
+
+
+
+      console.log('bot', botImageChoice)
+
+
+      document.getElementById('flex-box-rps-div').appendChild(humanDiv);
+      document.getElementById('flex-box-rps-div').appendChild(messageDiv);
+      document.getElementById('flex-box-rps-div').appendChild(botDiv);
+
+    }
+
+
+
+
+
+
+    /////////// Challenge no  4 change the Color of All buttons ///////////// 
+
+
+    var all_buttons = document.getElementsByTagName('button')
+    console.log(all_buttons)
+
+    var copyAllButtons = [];
+
+    for (let i = 0; i < all_buttons.length; i++) {
+      copyAllButtons.push(all_buttons[i].classList[1]);
+    }
+
+
+    console.log(copyAllButtons)
+
+    var wee = document.getElementById('Wee').onclick = function(){
+      location.href = 'https://www.wee.com/de/de/home';
+    }
+      var Yahoo = document.getElementById('Yahoo').onclick = function(){
+        location.href = 'https://www.yahoo.com/ ';
+      };
+      var Google = document.getElementById('Google').onclick = function(){
+        location.href = 'https://www.google.com/';
+      };
+      var Facebook = document.getElementById('Facebook').onclick = function(){
+         location.href = 'https://www.facebook.com/';
+      };
+
+       
+
+
+    function buttonColorChange(buttonThingy) {
+      console.log(buttonThingy.value)
+    }
+
+
+
+
+
+
+    function buttonColorChange(buttonThingy) {
+
+      if (buttonThingy.value === 'red') {
+        buttonsRed()
+
+      } else if (buttonThingy.value === 'green') {
+        buttonsGreen()
+
+      } else if (buttonThingy.value === 'reset') {
+        buttonColorReset()
+
+      } else if (buttonThingy.value === 'random') {
+        randomColors();
+      }
+
+    }
+
+
+
+
+
+
+    function buttonsRed() {
+      for (let i = 0; i < all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1])
+        all_buttons[i].classList.add('btn-danger')
+      }
+    }
+
+
+
+
+
+    function buttonsGreen() {
+      for (let i = 0; i < all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1])
+        all_buttons[i].classList.add('btn-success');
+      }
+    }
+
+
+
+
+    function buttonColorReset() {
+      for (let i = 0; i < all_buttons.length; i++) {
+        all_buttons[i].classList.remove(all_buttons[i].classList[1])
+        all_buttons[i].classList.add(copyAllButtons[i]);
+      }
+    }
+
+
+
+
+
+    function randomColors() {
+      let choice = ['btn-primary', 'btn-danger', 'btn-success', 'btn-warning']
+      for (let i = 0; i < all_buttons.length; i++) {
+        let randomNumber = Math.floor(Math.random() * 4);
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add(choice[randomNumber]);
+      }
+
+    }
+
+
+
+
+
+    //  Challenge 5 js blackjack
+
+
+    let blackjackGame = {
+
+      'you': {
+        'scoreSpan': '#your-blackjack-result',
+        'div': '#your-box',
+        'score': 0
+      },
+
+
+      'dealer': {
+        'scoreSpan': '#dealer-blackjack-result',
+        'div': '#dealer-box',
+        'score': 0
+      },
+
+
+      'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'k', 'J', 'Q', 'A'],
+      'cardsMap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, 9: '9', '10': 10, 'k': 10, 'j': 10, 'Q': 10, 'A': [1, 11] },
+
+
+      'Wins': 0,
+      'losses': 0,
+      'draws': 0,
+      'iStand': false,
+      'turnsOver' : false
+
+    };
+
+
+    var wins  = document.getElementById('wins');
+    wins.style.color ='red' ;
+    var losses = document.getElementById('losses');
+    losses.style.color = ' red' 
+    var draws = document.getElementById('draws') ;
+    draws.style.color = 'red';
+
+ 
+    
+    const YOU = blackjackGame['you']
+    const DEALER = blackjackGame['dealer']
+
+
+    const hitSound = new Audio('./Sounds/swish.m4a')
+    const winSound = new Audio('./Sounds/cash.mp3')
+    const lossSound = new Audio('./Sounds/aww.mp3')
+
+
+    document.querySelector('#Blackjack-hit-button').addEventListener('click', blackjackHit);
+    document.querySelector('#Blackjack-stand-button').addEventListener('click', dealerLogic)
+    document.querySelector('#Blackjack-deal-button').addEventListener('click', blackjackDeal);
+
+
+   
+
+    function blackjackHit() {
+      if(blackjackGame['iStand'] === false){ 
+      let card = randomCard();
+      showCard(card, YOU)
+      console.log(card)
+      updateScore(card, YOU)
+      console.log(YOU['score'])
+      showScore(YOU)
+    
+
+      }
+
+     
+  
+    }
+
+
+
+
+
+    // images show through javascript completely ......
+    function showCard(card, activePlayer) {
+      if (activePlayer['score'] <= 21) {
+        let cardImage = document.createElement('img');
+        cardImage.src = `./images/${card}.png `;
+        document.querySelector(activePlayer['div']).appendChild(cardImage)
+        hitSound.play()
+
+      }
+
+    }
+
+     
+
+
+
+
+
+
+
+    function blackjackDeal() {
+    
+    if (blackjackGame['turnsOver'] === true){
+
+
+
+      blackjackGame['iStand'] = false;
+
+       
+       
+          
+      
+
+      let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+      console.log(yourImages)
+
+      let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img')
+     
+
+      for (i = 0; i < yourImages.length; i++) {
+        yourImages[i].remove();
+      }
+
+      for (i = 0; i < dealerImages.length; i++) {
+        dealerImages[i].remove();
+      }
+      
+
+      YOU['score'] = 0;
+      DEALER['score'] = 0;
+
+
+      document.querySelector('#your-blackjack-result').textContent = 0;
+      document.querySelector('#dealer-blackjack-result').textContent = 0;
+
+
+      document.querySelector('#your-blackjack-result').style.color = '#ffffff';
+      document.querySelector('#dealer-blackjack-result').style.color = '#ffffff';
+
+    
+      document.querySelector('#blackjack-result').textContent = "Let 's play";
+      document.querySelector('#blackjack-result  ').style.color  = 'black';
+
+
+     blackjackGame['turnsOver'] = true
+
+    }
+
+  
+    }
+
+
+
+//////////////   Timer //////////////
+
+function showtime(){
+
+
+var music = new Audio('./Sounds/click-touch.wav');
+var gameover = new Audio('./Sounds/fast-small.wav')
+
+
+var counter = 7;
+
+
+
+ setInterval(function(){
+
+   counter--;
+
+                   
+    if(counter >=0){
+      id = document.getElementById('count')
+      id.innerHTML = counter;
+      music.play()
+
+
+    }if(counter === 0){
+       id.innerHTML = 'time up!'
+       id.style.color = ' red';
+       id.style.fontFamily = "Impact,Charcoal,sans-serif";
+       gameover.play()
+       var button =  document.getElementById("Blackjack-hit-button").disabled = true;
+       console.log(button)
+       document.getElementById("Blackjack-stand-button").disabled = true ; 
+       document.getElementById('Blackjack-deal-button').disabled = true
+    }
+     
+
+
+  },1000)
+
+}
+
+
+
+
+
+
+
+//   function showtime() {
+
+
+//    var date = new Date();
+
+
+//     var h = date.getHours();
+//     var mint = date.getMinutes();
+//     var Second = date.getSeconds()
+//     var session = 'AM';
+
+     
+
+ 
+
+//   if (Second < 10) {
+//    Second = "0";
+//    }
+    
+
+     
+         
+//  if (mint < 10) {
+//      mint = "0"; 
+//   }   
+
+
+
+// if(h <10 ){
+//   h  = '0';
+// }
+  
+
+
+// // // //  show period Am and Pm... 
+
+//    if(Second == 7){
+//   
+
+//h = 0;
+//    }
+
+      
+    
+
+
+// // // //  set correct digit ....
+//   if(h == 0){
+//        h = 12;
+//    }
+
+
+
+
+
+// // // // displaying  period ...
+
+//   if(h > 12){
+//     h  =  h - 12;
+//     session = 'PM';
+//   }
+
+
+
+
+
+
+
+
+//    h = (h < 10 ) ? '0' + h : h;
+//    mint = (mint < 10) ? '0' + mint : mint;
+//   Second = (Second < 10) ? '0' +  Second : Second;
+
+
+
+
+
+
+//  document.getElementById('Digital-Clock').innerHTML = h + ':' + mint + ":" + Second + " " + session;
+
+//  setTimeout(showtime, 1000);
+
+
+
+
+
+
+
+
+
+    function randomCard() {
+      let randomIndex = Math.floor(Math.random() * 13);
+      return blackjackGame['cards'][randomIndex];
+    }
+
+
+
+
+
+
+    function updateScore(card, activePlayer) {
+
+      if (card === 'A') {
+        // if adding 11 keeps me below 21 ,and 11 ,otherwise,add 1....
+        if (activePlayer['score'] + blackjackGame['cardsMap'][card][1] <= 21) {
+          activePlayer['score'] += blackjackGame['cardsMap'][card][1];
+        } else {
+          activePlayer['score'] += blackjackGame['cardsMap'][card][0];
+        }
+
+      }
+      else {
+        activePlayer['score'] += blackjackGame['cardsMap'][card];
+      }
+
+    }
+
+
+
+
+
+    function showScore(activePlayer) {
+      if (activePlayer['score'] > 21) {
+        document.querySelector(activePlayer['scoreSpan']).textContent = 'BUST!';
+        document.querySelector(activePlayer['scoreSpan']).style.color = 'red';
+      } else {
+        document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer =
+          activePlayer['score']
+      }
+
+    }
+
+
+
+
+
+function sleep(ms){
+  return new Promise (resolve => setTimeout(resolve , ms))
+}
+
+
+
+
+
+  async  function dealerLogic() {
+
+      blackjackGame['iStand'] = true;
+
+      while (DEALER['score'] < 16 && blackjackGame['iStand'] === true){ 
+      let card = randomCard();
+      showCard(card, DEALER);
+      updateScore(card, DEALER);
+      showScore(DEALER);
+      await sleep(1000)
+    }
+
+       
+
+       blackjackGame['turnsOver'] = true;
+       let winner = computeWinner()
+       showResult(winner)
+    
+     
+    }
+
+
+
+   
+
+
+
+
+    // computer  winner and return who just  won
+    //update the wins drwas and losses  
+    function computeWinner() {
+      let winner;
+
+
+
+      if (YOU['score'] <= 21) {
+        //condition : higher score than dealer busts but you're 21 under
+        if (YOU['score'] > DEALER['score'] || (DEALER['score'] > 21)) {
+          blackjackGame['Wins']++
+          console.log('you won!')
+          winner = YOU;
+
+
+
+
+        } else if (YOU['score'] < DEALER['score']) {
+          blackjackGame['losses']++
+          console.log('you lost!')
+          winner = DEALER;
+
+
+
+
+          ////// both are equal dealer and your score ///////
+        } else if (YOU['score'] === DEALER['score']) {
+          blackjackGame['draws']++
+          console.log('you draw!')
+        }
+
+
+        // condition when user busts but dealer doesn't
+      }
+
+
+
+        else if (YOU['score'] > 21 && DEALER['score'] <= 21) {
+        blackjackGame['losses']++
+        console.log('you lost!')
+        winner = DEALER;
+
+
+
+        //condition when you and the dealer bust! 
+      } else if (YOU['score'] > 21 && DEALER['score'] > 21) {
+        blackjackGame['draws']++
+        console.log('you draw!')
+      }
+
+
+
+
+       console.log(blackjackGame)
+       return winner;
+
+    }
+
+
+         
+
+
+      
+
+    function showResult(winner) {
+      let message, messageColor;
+
+      if(blackjackGame['turnsOver'] === true){
+
+   
+      if (winner === YOU) {
+      document.querySelector('#wins').textContent = blackjackGame['Wins']
+        msg = 'You won!';
+        messageColor = 'red';
+        winSound.play();
+
+
+
+      } else if (winner === DEALER) {
+        document.querySelector('#losses').textContent = blackjackGame['losses']
+        msg = 'You lost!';
+        messageColor = 'green';
+        lossSound.play();
+
+
+
+      } else {
+        document.querySelector('#draws').textContent = blackjackGame['draws']
+        msg = 'you draw!';
+        messageColor = 'black';
+      }
+
+
+
+      document.querySelector('#blackjack-result').textContent = msg;
+      document.querySelector('#blackjack-result').style.color = messageColor;
+    }
+
+    }
+
+
+
+
+
+// //// printing prime numbers ////
+//     function Prime() {
+
+//       var primeNum = [1, 2, 3, 4, 5, 6 ];
+//     // // console.log('add',prime);
+//       for(let i = 0; i<=primeNum.lenght ; i++){
+//          //  primeNum[i]; 
+//          console.log(primeNum[i]);
+//       }
+//     //   return add;
+//     //  console.log(primeNum[i]); 
+//    // var data = [1, 2, 3, 4, 5, 6];
+
+// // // traditional for loop
+// // for(let i=0; i<=data.length; i++) {
+// //   console.log(data[i])  // 1 2 3 4 5 6
+            
+//  }
+
+
+
+
+
+
+//function  IntegersNumbers (){
+ 
+//  var PositiveIntegers = [1, 2, 3, 4,10,55];
+// var sum =  PositiveIntegers.reduce((a, b) => a + b );
+//    console.log(sum)
+//  for(i=0; i<PositiveIntegers.length ;i++){
+//           var final =   PositiveIntegers[i];
+//           var sum = final.reduce((a, b) => a + b, 0);      
+//          console.log(sum)  
+//    }
+
+    //  var string = parseInt('1234') 
+    //  console.log(string)
+ 
+
+
+    
+// print current Time with day//
+// var today = new Date();
+
+// var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+// console.log(time ,'currentTime',)
+
+
+
+// var d = new Date();
+// var timer = d.toLocaleTimeString();
+
+
+
+//document.getElementById("timer").innnerHTML = timer;
+
+
+// console.log('today',timer)
+
+
+
+// var weekday = new Array(7);
+
+
+// weekday[0] = "Sunday";
+
+// weekday[1] = "Monday";
+
+// weekday[2] = "Tuesday";
+
+// weekday[3] = "Wednesday";
+
+// weekday[4] = "Thursday";
+
+// weekday[5] = "Friday";
+
+// weekday[6] = "Saturday";
+
+
+
+// var n = weekday[d.getDay()];
+
+// console.log("today 's","day  " ,n)
+
+
+
+/// print current content //
+// // window.print();
+
+
+// print current date //
+// var currentDate = new Date();
+// var month = currentDate.getMonth()+ "/" + currentDate.getFullYear() +"/" + currentDate.getDate() ;
+// console.log(month)
+
+//console.log(currentDate)
+
+// //  find the area of a triangle //
+//  var a = 5;
+//  var b = 6;
+//  var c = 7;
+
+// var s = (a + b +  c ) / 2; 
+
+// // heron's formula //
+// var formula  = s*(s-a) *(s-b) * (s-c);
+// console.log(formula)
+
+
+// var Square = Math.sqrt(formula);
+// console.log(Square)
+
+
+
+
+
+
+
+//var rotateString = string.split('').reverse().join().toString();
+
+
+// var string = 'w3resource';
+// var extract = string.substring(1).split('').reverse().join().toString('');
+// console.log('extract',extract)
+
+
+// //var replace = rotateString.replace()
+// //console.log(replace)
+
+// }
+
+
+
+
+ 
+
+
+
+
+
+ 
+// printing array through for loop/// 
+// var data = [1, 2, 3, 4, 5, 6];
+
+// // traditional for loop
+// for(let i=0; i<=data.length; i++) {
+//   console.log(data[i])  // 1 2 3 4 5 6
+// }
+
+
+
+
+
+/// converting string in numbers //
+// var string = parseInt('1234') 
+// console.log(string)
+ 
+
+
+
+
+
+/////// challenge no 6 : Ajax & API's  with javaScript 
+
+     const url = 'https://randomuser.me/api/?results=10' ;   // GET 10  random users
+ 
+
+     fetch(url)
+      .then (results =>results.json())
+      .then(data=>{
+   
+      let authors = data.results;
+       console.log('authors',authors)
+
+
+    
+     for(i=0 ; i<authors.length;i++ ){
+
+       let div = document.createElement('div');
+       let image = document.createElement('img');
+       let p = document.createElement('p');
+       p.appendChild(document.createTextNode(`${title(authors[i].name.first)} ${title(authors[i].name.last)}`));
+       image.src = authors[i].picture.large;
+       div.appendChild(image); 
+       div.appendChild(p)
+       document.querySelector('.container-6  .flex-box-reps').appendChild(div);
+     }
+     }); 
+
+      let title = str => str[0].toUpperCase() + str.slice(1);
+
+     function mustafa(){
+       return '5'
+      }
+ 
+       
+      
+      
+
+  </script>
+
+
+
+
+  <!-- internal css -->
+
+  <style>
+    .container-1,
+    .container-2,
+    .container-3,
+    .container-4,
+    .container-5, 
+    .container-6 {
+      border: 1px solid black;
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    
+
+
+    .flex-box-container-1,
+    .flex-box-container-2,
+    .flex-box-reps,
+    .flex-box-pick-color,
+    .flex-blackjack-row-1,
+    .flex-blackjack-row-2
+    { 
+      display: flex;
+      border: 1px solid black;
+      padding: 10px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+
+
+
+
+
+
+    .flex-blackjack-row-3{
+      display: flex;
+      border: 1px solid black;
+      padding: 10px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      flex-direction: row;
+      color: white;
+      background: url('https://www.teahub.io/photos/full/138-1383006_wallpaper-gradient-green-linear-black-dark-green-gradient.jpg') center;
+    } 
+
+
+ 
+
+
+    .flex-blackjack-row-1, 
+    .flex-blackjack-row-2 {
+      background: url('https://www.teahub.io/photos/full/138-1383006_wallpaper-gradient-green-linear-black-dark-green-gradient.jpg') center;
+      color: #ffffff;
+    }
+
+
+
+
+    .flex-blackjack-row-1 div {
+      border: 1px solid black;
+      flex: 1;
+      padding: 10px;
+      height: 350px;
+      text-align: center;
+    }
+
+
+
+
+
+
+    /* % Its means it will occupy the full width of its parent. */
+    .flex-blackjack-row-1 img {
+      width: 25%;
+      padding: 10px;
+    }
+
+
+
+
+    .flex-blackjack-row-2 button {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+
+
+
+
+    .flex-blackjack-row-2 div {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+
+
+
+    .img {
+      width: 200px;
+      height: 200px;
+    }
+
+
+
+.div{
+     display: inline-block;
+     vertical-align: top;
+     display: inline;
+}
+
+
+
+    .flex-box-container-1 div {
+      display: flex;
+      border: 1px solid black;
+      padding: 10px;
+      align-items: center;
+    }
+
+
+
+
+    .flex-box-container-2 img {
+      padding: 10px;
+      box-shadow: 0px 10px 50px rgba(0, 0, 0, 5);
+    }
+
+
+
+
+
+    table,
+    th {
+      padding: 5px;
+      border: 1px solid black;
+ 
+    }
+
+
+
+
+    .flex-box-reps img:hover {
+      box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+
+
+
+</body>
+
+</html>
